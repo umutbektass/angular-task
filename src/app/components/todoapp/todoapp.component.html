@@ -1,0 +1,50 @@
+<div class="col-4 offset-4">
+  <div class="d-flex flex-column">
+    <form class="d-flex align gap-3 mt-5 " [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="name" class="form-label">Görev : </label>
+        <input type="email" class="form-control" id="name" formControlName="name">
+      </div>
+      <div>
+        <label for="task" class="form-label">Atanan Kişi</label>
+        <input type="email" #todoText class="form-control" id="task" formControlName="task">
+      </div>
+      <div class="align-self-end">
+        <button class="btn btn-primary">
+          Ekle
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div *ngIf="myArray.length>0" class="col-6 offset-3">
+  <ul class="list-group" *ngFor="let task of myArray; let i =index;">
+    <li class="list-group-item d-flex justify-content-evenly my-2 align-items-center">
+      <span>{{i+1}}</span>
+      <span>{{task.name}}</span>
+      <span>{{task.task}}</span>
+      <span><mat-form-field>
+          <mat-label>Başlangıç Tarihi</mat-label>
+          <input matInput [matDatepicker]="picker1" [(ngModel)]="date" #myInput>
+
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field></span>
+      <span>
+        <mat-form-field style="color: aqua; padding: 0;">
+          <mat-label>Bitiş Tarihi</mat-label>
+          <input matInput [matDatepicker]="picker2" [(ngModel)]="date1" #myInput1 >
+
+          <mat-datepicker-toggle matSuffix [for]="picker2" ></mat-datepicker-toggle>
+          <mat-datepicker #picker2 ></mat-datepicker>
+        </mat-form-field>
+      </span>
+      <span>
+        <div *ngIf="date && date1">{{ formatDate(date, date1) }} gün</div>
+      </span>
+    </li>
+  </ul>
+</div>
+<router-outlet></router-outlet>

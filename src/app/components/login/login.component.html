@@ -1,0 +1,11 @@
+<div class="col-4 offset-4">
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Ad</label>
+    <input type="text" [(ngModel)]="name" class="form-control" id="exampleFormControlInput1" >
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Soyad</label>
+    <input type="text"  [(ngModel)]="surname" class="form-control" id="exampleFormControlInput1" >
+  </div>
+  <button class="btn btn-outline-primary" routerLink="/todoapp" (click)="saveLocalStrage()">Login</button>
+</div>
