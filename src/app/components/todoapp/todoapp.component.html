@@ -19,32 +19,75 @@
 </div>
 
 
-<div *ngIf="myArray.length>0" class="col-6 offset-3">
-  <ul class="list-group" *ngFor="let task of myArray; let i =index;">
-    <li class="list-group-item d-flex justify-content-evenly my-2 align-items-center">
-      <span>{{i+1}}</span>
-      <span>{{task.name}}</span>
-      <span>{{task.task}}</span>
-      <span><mat-form-field>
-          <mat-label>Başlangıç Tarihi</mat-label>
-          <input matInput [matDatepicker]="picker1" [(ngModel)]="date" #myInput>
 
-          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-          <mat-datepicker #picker1></mat-datepicker>
-        </mat-form-field></span>
-      <span>
-        <mat-form-field style="color: aqua; padding: 0;">
-          <mat-label>Bitiş Tarihi</mat-label>
-          <input matInput [matDatepicker]="picker2" [(ngModel)]="date1" #myInput1 >
 
-          <mat-datepicker-toggle matSuffix [for]="picker2" ></mat-datepicker-toggle>
-          <mat-datepicker #picker2 ></mat-datepicker>
-        </mat-form-field>
-      </span>
-      <span>
-        <div *ngIf="date && date1">{{ formatDate(date, date1) }} gün</div>
-      </span>
-    </li>
-  </ul>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-3 card mx-2  align-items-center">
+      <h3 class="my-2">YAPILACAKLAR</h3>
+      <ul class="tasks">
+        <li *ngFor="let task of myArray; let i =index;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <a class="task-item" (click)="openModal()">
+
+            <span class="fs-6 text my-2">{{task.name}}</span>
+            <span class="fs-6 text my-2">{{task.task}}</span>
+            <span class="fs-8 text my-2"><fa-icon [icon]="circleIcon" style="color: yellow;"></fa-icon>  {{task.durum}}</span>
+          </a>
+          <div class="wrapper" *ngIf="modal">
+            <div class="col-3 card">
+              <div class="d-flex flex-column gap-2 justify-content-center align-items-center">
+              <span class="fs-6 text my-4">{{task.name}}</span>
+            <span class="fs-6 text my-3">{{task.task}}</span>
+         
+            <mat-form-field class="w-75 ">
+              <mat-label>Başlangıç Tarihi</mat-label>
+              <input matInput [matDatepicker]="picker1" [(ngModel)]="date" #myInput>
+    
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field style="color: aqua; padding: 0;" class="w-75">
+              <mat-label>Bitiş Tarihi</mat-label>
+              <input matInput [matDatepicker]="picker2" [(ngModel)]="date1" #myInput1>
+    
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+            <div class="d-flex gap-2 my-2">
+              <button class="btn btn-primary" (click)="formatDate1(date,date1,task,i)">KAYDET</button>
+              <button class="btn btn-primary" (click)="closeModal()">CLOSE</button>
+             
+          </div>
+          </div>
+          </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-3 card mx-2">
+      <h3 class="my-2">DEVAM EDİYOR</h3>
+      <ul class="tasks">
+      <li *ngFor="let task of started; let i =index;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <a class="task-item">
+         <span class="my-1">{{task.name}}</span>
+         <span  class="my-1">{{task.task}}</span>
+
+         <span  class="my-1"><fa-icon [icon]="circleIcon" style="color: green;"></fa-icon> Devam ediyor</span>
+          <span  class="my-1">{{task.result}} gün kaldı</span>
+
+        
+        </a>
+        </li>
+      </ul>
+    </div>
+   
+
+  </div>
+
 </div>
+
+
+
+
+
 <router-outlet></router-outlet>

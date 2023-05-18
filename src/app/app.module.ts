@@ -14,6 +14,7 @@ import { MatDatepicker } from '@angular/material/datepicker';
 import { MatDateRangeInput } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     BrowserAnimationsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
