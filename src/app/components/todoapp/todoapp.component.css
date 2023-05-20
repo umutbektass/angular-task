@@ -1,55 +1,118 @@
-.tasks{
-    list-style: none;   
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding-left: 0;
-    padding: 0;
-    margin: 0;
+.tasks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 0;
+  padding: 0;
+  margin: 10px 0;
+
 }
 
-.task-item{
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid #B2B2B2;
-    border-radius: 10px;
-    padding: 10px 25px;
-    margin: 10px 0;
-    width: 100%;
-    
+.task-item {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #B2B2B2;
+  border-radius: 6px;
+  padding: 10px 25px;
+  margin: 2px 0;
+  width: 100%;
+  text-align: start;
+  background-color: #ffffff;
+
 }
-a{
-    text-decoration: none;
-    color: black;
+
+a {
+  text-decoration: none;
+  color: black;
 }
 
 
-.wrapper{
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(51, 49, 49, 0.2);
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: slow 0.5s 1;
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(51, 49, 49, 0.2);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  animation: slow 0.5s 1;
+}
+.modal-card{
+  height: 60%;
+  margin-top: 70px;
 }
 
 @keyframes slow {
-    from {
-      opacity: 0;
-    }
-  
-    to {
-      opacity: 1;
-    }
+  from {
+    opacity: 0;
   }
 
-.card{
-    position: unset;
+  to {
+    opacity: 1;
+  }
+}
+
+.card {
+  position: unset;
+}
+
+.model-header>a {
+  cursor: pointer;
+  border: 1px solid #F9F9F9;
+  padding: 3px 10px;
+  background-color: #F9F9F9;
+  border-radius: 2px;
+  font-weight: 500;
+  color: rgb(46, 45, 45);
+  font-size: 15px;
+}
+
+.model-description>input {
+  border: #ffffff;
+  margin-top: 10px;
+  padding: 7px 0;
+}
+
+.model-description>input:hover {
+  background-color: #e7e6e6;
+  border-radius: 2px;
+}
+
+.model-description>input::placeholder {
+  padding: 25px 0px;
+}
+
+.model-events>div>a {
+  cursor: pointer;
+  border: 1px solid #F9F9F9;
+  padding: 3px 10px;
+  background-color: #F9F9F9;
+  border-radius: 2px;
+  font-weight: 500;
+  color: rgb(46, 45, 45);
+  margin: 0 4px;
+  font-size: 14px;
+}
+
+.modelevents-filter {
+  padding: 5px 10px;
+}
+
+.modelevents-filter:hover {
+  background-color: #F9F9F9;
+}
+.description-input{
+  padding: 2px 15px;
+  border: 1px solid rgb(221, 220, 220);
+  border-radius: 4px;
+  width: 100%;
+}
+
+.mat-mdc-text-field-wrapper{
+  height: 10px !important;
+  background-color: aqua !important;
+  align-items: center;
 }
